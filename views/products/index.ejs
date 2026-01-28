@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Manager</title>
+    <link rel="stylesheet" href="/css/index.css">
+</head>
+<body>
+<div class="container">
+    <h1>Product Manager</h1>
+
+    <a href="/add" class="button">Add Product</a>
+
+    <table>
+        <tr>
+            <th>STT</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Image</th>
+            <th>Actions</th>
+        </tr>
+
+        <% products.forEach((p, index) => { %>
+        <tr>
+            <td><%= index + 1 %></td>
+            <td><%= p.name %></td>
+            <td>$<%= p.price %></td>
+            <td><%= p.quantity %></td>
+            <td><img src="<%= p.url_image %>" width="60"></td>
+            <td class="actions">
+                <a href="/edit/<%= p.ma_sp %>">Edit</a>
+                <a href="/delete/<%= p.ma_sp %>" class="delete"
+                   onclick="return confirm('Bạn chắc chắn muốn xóa?')">Delete</a>
+            </td>
+        </tr>
+        <% }) %>
+    </table>
+</div>
+</body>
+</html>
